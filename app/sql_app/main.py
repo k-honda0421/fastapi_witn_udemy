@@ -79,3 +79,21 @@ async def create_booking(
     booking: schemas.BookingCreate, db: Session = Depends(get_db)
 ):
     return crud.create_booking(db=db, booking=booking)
+
+
+# update
+@app.put("/users", response_model=schemas.User)
+async def update_user(user: schemas.User, db: Session = Depends(get_db)):
+    return crud.update_user(db=db, user=user)
+
+
+@app.put("/rooms", response_model=schemas.Room)
+async def update_room(room: schemas.Room, db: Session = Depends(get_db)):
+    return crud.update_room(db=db, room=room)
+
+
+@app.put("/bookings", response_model=schemas.Booking)
+async def update_booking(
+    booking: schemas.Booking, db: Session = Depends(get_db)
+):
+    return crud.update_booking(db=db, booking=booking)
